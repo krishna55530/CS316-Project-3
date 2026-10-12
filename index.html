@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fish</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="fish.js" defer></script> <!-- need defer? -->
+
+        <script>
+            //randomly assign fish images, modify html using js
+            //MOVE CODE
+            const fishElements = document.querySelectorAll(".fish");
+
+            fishElements.forEach(fish => {
+                const randomImageNumber = Math.floor(Math.random() * 5) + 1;
+                fish.src = `fish${randomImageNumber}.png`;
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Fish Tank</h1>
+
+        <img src="" class="fish" id = "1" alt="fish #1" style="position:absolute; left:0"> <!--fix pos and PIXELS-->
+        <img src="" class="fish" id = "2" alt="fish #2" style="position:absolute; left:0">
+        <img src="" class="fish" id = "3" alt="fish #3" style="position:absolute; left:0">
+        <img src="" class="fish" id = "4" alt="fish #4" style="position:absolute; left:0">
+        <img src="" class="fish" id = "5" alt="fish #5" style="position:absolute; left:0">
+        <img src="" class="fish" id = "6" alt="fish #6" style="position:absolute; left:0">
+        <img src="" class="fish" id = "7" alt="fish #7" style="position:absolute; left:0">
+    </body>
+</html>
