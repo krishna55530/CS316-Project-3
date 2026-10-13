@@ -1,8 +1,8 @@
 body {
-    /*background-image: url("tank.png");
+    background-image: url("tank.png");
     background-repeat: no-repeat;
-    background-position: center;*/
-    /* background-attachment: fixed; */
+    background-position: center;
+    background-attachment: fixed;
     /*background-size: cover;*/
 
     background-color: rgb(245, 161, 245);
