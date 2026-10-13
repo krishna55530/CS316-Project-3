@@ -12,12 +12,12 @@
 
             fishElements.forEach(fish => {
                 const randomImageNumber = Math.floor(Math.random() * 5) + 1;
-                fish.src = `fish${randomImageNumber}.png`;
+                fish.src = "fish" + randomImageNumber + ".png";
             });
         </script>
     </head>
     <body onload="startSwimming()">
-        <h1 style = "text-align: center;">Fish Tank</h1>
+        <h1>Click on a Fish!</h1>
 
         <!--<img src="tank.png" alt="fish tank" class="center-block">-->
 
