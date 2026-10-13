@@ -35,6 +35,23 @@ function swim(fish, timerId) {
 let fishImages;
 let timerIds = [];
 
+document.addEventListener("DOMContentLoaded", () => {
+    // Randomly assign an image to each fish
+    const fishElements = document.querySelectorAll(".fish");
+
+    fishElements.forEach(fish => {
+        const randomImageNumber = Math.floor(Math.random() * 5) + 1;
+        fish.src = `fish${randomImageNumber}.png`;
+
+        // Position each fish
+        fish.style.position = "absolute";
+        fish.style.left = "0";
+    });
+
+    // Start swimming when loads
+    startSwimming();
+});
+
 function startMoving() {        
    fishImages = document.getElementsByClassName("fish");
 

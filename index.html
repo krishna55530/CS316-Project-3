@@ -4,19 +4,8 @@
         <title>Fish</title>
         <link rel="stylesheet" href="style.css">
         <script src="fish.js" defer></script> <!-- need defer? -->
-
-        <script>
-            //randomly assign fish images, modify html using js
-            //MOVE CODE
-            const fishElements = document.querySelectorAll(".fish");
-
-            fishElements.forEach(fish => {
-                const randomImageNumber = Math.floor(Math.random() * 100) % 5 + 1; // generates a random number between 1 and 5
-                fish.src = "fish" + randomImageNumber + ".png";
-            });
-        </script>
     </head>
-    <body onload="startSwimming()">
+    <body> <!-- onload="startSwimming()" -->
         <h1>Click on a Fish!</h1>
 
         <!--<img src="tank.png" alt="fish tank" class="center-block">-->
