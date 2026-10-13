@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const fishElements = document.querySelectorAll(".fish");
 
     fishElements.forEach(fish => {
-        const randomImageNumber = Math.floor(Math.random() * 5) + 1;
+        const randomImageNumber = Math.floor(Math.random() * 7) + 1;
         fish.src = `fish${randomImageNumber}.png`;
 
         // Position each fish
