@@ -45,11 +45,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Position each fish
         fish.style.position = "absolute";
-        fish.style.left = "0";
+        fish.style.right = "0px";
     });
 
     // Start swimming when loads
-    startSwimming();
+    startMoving();
 });
 
 function startMoving() {        
@@ -62,7 +62,7 @@ function startMoving() {
          fish.style.right = "0px";
       }
 
-      let timerId = setInterval(() => { moveFish(fish, timerId); }, 15*id);
+      let timerId = setInterval(() => { moveFish(fish, timerId); }, 25*id);
       timerIds.push(timerId);
 
       fish.addEventListener("click", changeSpeed);
@@ -80,7 +80,7 @@ function changeSpeed(event) {
     // Temporarily increase the speed
     timerIds[index] = setInterval(
         () => moveFish(fish),
-        7 * id
+        12 * id
     );
 
     // Return to the original speed after 3 seconds
@@ -89,7 +89,7 @@ function changeSpeed(event) {
 
         timerIds[index] = setInterval(
             () => moveFish(fish),
-            15 * id
+            25 * id
         );
     }, 3000);
 }

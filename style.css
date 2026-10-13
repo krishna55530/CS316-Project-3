@@ -26,6 +26,7 @@ h1 {
 }
 
 .fish {
-  height: 100px;
+  height: 30px;
   width: auto;
+  cursor: pointer;
 }
