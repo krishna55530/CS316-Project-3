@@ -1,7 +1,7 @@
 body {
-    /*background-image: url("tank.png");*/
+    /*background-image: url("tank.png");
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center;*/
     /* background-attachment: fixed; */
     /*background-size: cover;*/
 
@@ -13,6 +13,11 @@ body {
   margin-left: auto;
   margin-right: auto;
   /* keeps the image from overflowing smaller screens */
-  max-width: 100%; 
+  max-width: 100%; /*make smaller*/
   height: auto;
+}
+
+h1 {
+  display: block;
+  margin-bottom: 100px;
 }
