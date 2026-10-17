@@ -75,7 +75,7 @@ function changeSpeed(event) {
     clearInterval(timerIds[index]);
 
     // Temporarily increase speed
-    timerIds[index] = setInterval(() => moveFish(fish), 15);
+    timerIds[index] = setInterval(() => moveFish(fish), 12);
 
     // Return to normal speed after 3 seconds
     setTimeout(() => {
