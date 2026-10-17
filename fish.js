@@ -1,3 +1,4 @@
+
 let fishImages;
 let timerIds = [];
 let directions = [];
