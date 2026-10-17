@@ -63,6 +63,12 @@ function flipFish(event) {
             directions[index] = "left";
             //fish.style.transform = "scaleX(1)";
         }
+
+        // Stop the current timer
+        clearInterval(timerIds[index]);
+
+        //New timer, with updated info?
+        timerIds[index] = setInterval(() => moveFish(fish), 30);
     }
 }
 
