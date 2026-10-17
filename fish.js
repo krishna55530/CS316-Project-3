@@ -54,7 +54,11 @@ function flipFish(event) {
 
     //60% chance to flip
     if (probability < 0.6) {
-        fish.style.transform = "scaleX(-1)";
+        if(fish.style.transform === "scaleX(1)") {
+            fish.style.transform = "scaleX(-1)";
+        } else {
+            fish.style.transform = "scaleX(1)";
+        }
 
         if (directions[index] === "left") {
             directions[index] = "right";
@@ -104,7 +108,14 @@ function moveFish(fish, timerId) {
          directions[index] = "right";
          fish.style.left = (max - right) + "px";
          fish.style.right = "auto";
-         fish.style.transform = "scaleX(-1)";
+
+        if(fish.style.transform === "scaleX(1)") {
+            fish.style.transform = "scaleX(-1)";
+        } else {
+            fish.style.transform = "scaleX(1)";
+        }
+
+         //fish.style.transform = "scaleX(-1)";
          //clearInterval(timerIds[index]);
          //timerIds[index] = setInterval(() => moveFish(fish), 15*id);
       } else {
@@ -117,7 +128,14 @@ function moveFish(fish, timerId) {
          directions[index] = "left";
          fish.style.left = "auto";
          fish.style.right = "0px";
-         fish.style.transform = "scaleX(-1)"; //1
+
+         if(fish.style.transform === "scaleX(1)") {
+            fish.style.transform = "scaleX(-1)";
+        } else {
+            fish.style.transform = "scaleX(1)";
+        }
+
+         //fish.style.transform = "scaleX(-1)"; //1
          //clearInterval(timerIds[index]);
          //timerIds[index] = setInterval(() => moveFish(fish), 15*id);
       } else {
