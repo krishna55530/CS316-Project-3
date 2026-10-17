@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Randomly assign an image and position to each fish
     fishElements.forEach(fish => {
-        const randomImageNumber = Math.floor(Math.random() * 7) + 1;
+        const randomImageNumber = Math.floor(Math.random() * 9) + 1;
         fish.src = `fish${randomImageNumber}.png`;
 
         const id = parseInt(fish.id) || 1;
@@ -77,7 +77,7 @@ function changeSpeed(event) {
     clearInterval(timerIds[index]);
 
     // Temporarily increase speed
-    timerIds[index] = setInterval(() => moveFish(fish), 15);
+    timerIds[index] = setInterval(() => moveFish(fish), 12);
 
     // Return to normal speed after 3 seconds
     setTimeout(() => {
