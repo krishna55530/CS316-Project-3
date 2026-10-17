@@ -102,7 +102,8 @@ function moveFish(fish) {
       
       if (right >= max) { //change to depend on tank
          directions[index] = "right";
-         fish.style.left = (max - right) + "px";
+         //fish.style.left = (max - right) + "px";
+         fish.style.left = "0px";
          fish.style.right = "auto";
 
         if(fish.style.transform === "scaleX(1)") {
