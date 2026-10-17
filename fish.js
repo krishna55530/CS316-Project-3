@@ -57,10 +57,10 @@ function flipFish(fish) {
     if(Math.random() < 0.6) {
         if(directions[index] === "left") {
             directions[index] = "right";
-            fish.style.transform = "scaleX(-1)";
+            fish.style.transform = "scaleX(1)";
         } else {
             directions[index] = "left";
-            fish.style.transform = "scaleX(1)";
+            fish.style.transform = "scaleX(-1)";
         }
     }
 }
