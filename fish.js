@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Randomly assign an image and position to each fish
     fishElements.forEach(fish => {
-        const randomImageNumber = Math.floor(Math.random() * 9) + 1;
+        const randomImageNumber = Math.floor(Math.random() * 7) + 1;
         fish.src = `fish${randomImageNumber}.png`;
 
         const id = parseInt(fish.id) || 1;
@@ -19,8 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
         directions[index] = "right";
         
         // Randomly position each fish
-        fish.style.top = `${Math.random() * Math.max(0, tank.clientHeight - fish.offsetHeight)}px`;
-        fish.style.left = `${Math.random() * Math.max(0, tank.clientWidth - fish.offsetWidth)}px`;
+        fish.style.top =
+            `${Math.random() * Math.max(0, tank.clientHeight - fish.offsetHeight)}px`;
+
+        fish.style.left =
+            `${Math.random() * Math.max(0, tank.clientWidth - fish.offsetWidth)}px`;
 
         fish.style.right = "auto";
     });
@@ -53,9 +56,9 @@ function startMoving() {
 function flipFish(fish) {
     const id = parseInt(fish.id) || 1;
     const index = id - 1;
-    
-    if(Math.random() < 0.6) {
-        if(directions[index] === "left") {
+
+    if (Math.random() < 0.6) {
+        if (directions[index] === "left") {
             directions[index] = "right";
             fish.style.transform = "scaleX(1)";
         } else {
@@ -74,7 +77,7 @@ function changeSpeed(event) {
     clearInterval(timerIds[index]);
 
     // Temporarily increase speed
-    timerIds[index] = setInterval(() => moveFish(fish), 12);
+    timerIds[index] = setInterval(() => moveFish(fish), 15);
 
     // Return to normal speed after 3 seconds
     setTimeout(() => {
