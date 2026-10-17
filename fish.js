@@ -35,6 +35,7 @@ function swim(fish, timerId) {
 let fishImages;
 let timerIds = [];
 let directions = [];
+let flipIds = [];
 
 document.addEventListener("DOMContentLoaded", () => {
     // Randomly assign an image to each fish
@@ -66,14 +67,38 @@ function startMoving() {
    fishImages = document.getElementsByClassName("fish"); //CONSISTENCY
 
    for (let fish of fishImages) {
-      let id = parseInt(fish.id) || 1;
+        let id = parseInt(fish.id) || 1;
 
-      //let timerId = setInterval(() => { moveFish(fish, timerId); }, 30);
-      let timerId = setInterval(() => moveFish(fish), 30);
-      timerIds.push(timerId);
+        //let timerId = setInterval(() => { moveFish(fish, timerId); }, 30);
+        let timerId = setInterval(() => moveFish(fish), 30);
+        timerIds.push(timerId);
 
-      fish.addEventListener("click", changeSpeed);
+        let flipId = setInterval(() => flipFish(fish), Math.floor(Math.random() * 5000) + 2000); // Random interval between 2 and 8 seconds
+        flipIds.push(flipId);
+
+        fish.addEventListener("click", changeSpeed);
    }
+}
+
+function flipFish(fish) {
+    let id = parseInt(fish.id) || 1;
+    let index = id - 1;
+    let probability = Math.random();
+
+    //50% chance to flip
+    if (probability < 0.5) {
+        if (directions[index] === "left") {
+            directions[index] = "right";
+            fish.style.left = (parseFloat(fish.style.right) || 0) + "px";
+            fish.style.right = "auto";
+            fish.style.transform = "scaleX(-1)";
+        } else {
+            directions[index] = "left";
+            fish.style.left = "auto";
+            fish.style.right = (parseFloat(fish.style.left) || 0) + "px";
+            fish.style.transform = "scaleX(1)";
+        }
+    }
 }
 
 function changeSpeed(event) {
