@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
         fish.style.left = `${Math.random() * (tank.clientWidth - fish.offsetWidth)}px`;
         fish.style.right = "auto";
 
-        //fish.style.transform = "scaleX(1)";
         directions[index] = "right";
     });
 
@@ -46,14 +45,6 @@ function startMoving() {
 
         // Speed up when clicked
         fish.addEventListener("click", changeSpeed);
-
-        /*
-        //let timerId = setInterval(() => { moveFish(fish, timerId); }, 30);
-        let timerId = setInterval(() => moveFish(fish), 30);
-        timerIds.push(timerId);
-
-        let flipId = setInterval(() => flipFish(fish), Math.floor(Math.random() * 6000) + 2000); // Random interval between 2 and 8 seconds
-        flipIds.push(flipId);*/
    }
 }
 
@@ -128,56 +119,3 @@ function moveFish(fish) {
 
     fish.style.left = left + "px";
 }
-
-/*function moveFish(fish) {
-   const id = parseInt(fish.id) || 1;
-   const index = id - 1; //array
-   const tank = document.querySelector(".tank");
-   const max = tank.clientWidth - fish.offsetWidth; //need?
-
-   let left = parseFloat(fish.style.left) || 0;
-   let right = parseFloat(fish.style.right) || 0;
-   
-   if(directions[index] === "left") {
-      let right = parseFloat(fish.style.right) || 0;
-      
-      if (right >= max) { //change to depend on tank
-         directions[index] = "right";
-         fish.style.left = (max - right) + "px";
-         //fish.style.left = "0px";
-         fish.style.right = "auto";
-
-        if(fish.style.transform === "scaleX(1)") {
-            fish.style.transform = "scaleX(-1)";
-        } else {
-            fish.style.transform = "scaleX(1)";
-        }
-
-         //fish.style.transform = "scaleX(-1)";
-         //clearInterval(timerIds[index]);
-         //timerIds[index] = setInterval(() => moveFish(fish), 15*id);
-      } else {
-         fish.style.right = (right + 5) + "px";
-      }
-   } else {
-      let left = parseFloat(fish.style.left) || 0;
-   
-      if (left >= max) { //change to depend on tank
-         directions[index] = "left";
-         fish.style.left = "auto";
-         fish.style.right = "0px";
-
-         if(fish.style.transform === "scaleX(1)") {
-            fish.style.transform = "scaleX(-1)";
-        } else {
-            fish.style.transform = "scaleX(1)";
-        }
-
-         //fish.style.transform = "scaleX(-1)"; //1
-         //clearInterval(timerIds[index]);
-         //timerIds[index] = setInterval(() => moveFish(fish), 15*id);
-      } else {
-         fish.style.left = (left + 5) + "px";
-      }
-   }
-}*/
