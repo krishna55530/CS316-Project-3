@@ -46,7 +46,8 @@ function startMoving() {
    }
 }
 
-function flipFish(fish) {
+function flipFish(event) {
+    let fish = event.currentTarget;
     let id = parseInt(fish.id) || 1;
     let index = id - 1;
     let probability = Math.random();
@@ -55,13 +56,9 @@ function flipFish(fish) {
     if (probability < 0.6) {
         if (directions[index] === "left") {
             directions[index] = "right";
-            fish.style.left = (parseFloat(fish.style.right) || 0) + "px";
-            fish.style.right = "auto";
             fish.style.transform = "scaleX(-1)";
         } else {
             directions[index] = "left";
-            fish.style.left = "auto";
-            fish.style.right = (parseFloat(fish.style.left) || 0) + "px";
             fish.style.transform = "scaleX(1)";
         }
     }
