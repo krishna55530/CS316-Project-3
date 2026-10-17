@@ -11,17 +11,21 @@ document.addEventListener("DOMContentLoaded", () => {
     fishElements.forEach(fish => {
         const randomImageNumber = Math.floor(Math.random() * 7) + 1;
         fish.src = `fish${randomImageNumber}.png`;
-        let id = parseInt(fish.id) || 1;
+        
+        const id = parseInt(fish.id) || 1;
+        const index = id - 1;
 
         //Randomly position each fish
-        fish.style.top = `${Math.random() * (tank.clientHeight - fish.height)}px`;
-        fish.style.right = `${Math.random() * (tank.clientWidth - fish.width)}px`;
+        fish.style.top = `${Math.random() * (tank.clientHeight - fish.offsetHeight)}px`;
+        fish.style.right = `${Math.random() * (tank.clientWidth - fish.offsetWidth)}px`;
         fish.style.left = "auto";
 
+        fish.style.transform = "scaleX(1)";
+
         if (randomImageNumber === 1 || randomImageNumber === 3) {
-            directions[id - 1] = "left";
+            directions[index] = "left";
         } else {
-            directions[id - 1] = "right";
+            directions[index] = "right";
         }
     });
 
@@ -39,21 +43,19 @@ function startMoving() {
         let timerId = setInterval(() => moveFish(fish), 30);
         timerIds.push(timerId);
 
-        let flipId = setInterval(() => flipFish(fish), Math.floor(Math.random() * 5000) + 2000); // Random interval between 2 and 8 seconds
+        let flipId = setInterval(() => flipFish(fish), Math.floor(Math.random() * 6000) + 2000); // Random interval between 2 and 8 seconds
         flipIds.push(flipId);
 
         fish.addEventListener("click", changeSpeed);
    }
 }
 
-function flipFish(event) {
-    let fish = event.currentTarget;
-    let id = parseInt(fish.id) || 1;
-    let index = id - 1;
-    let probability = Math.random();
+function flipFish(fish) {
+    const id = parseInt(fish.id) || 1;
+    const index = id - 1;
 
     //60% chance to flip
-    if (probability < 0.6) {
+    if (Math.random() < 0.6) {
         if(fish.style.transform === "scaleX(1)") {
             fish.style.transform = "scaleX(-1)";
         } else {
@@ -67,19 +69,13 @@ function flipFish(event) {
             directions[index] = "left";
             //fish.style.transform = "scaleX(1)";
         }
-
-        // Stop the current timer
-        clearInterval(timerIds[index]);
-
-        //New timer, with updated info?
-        timerIds[index] = setInterval(() => moveFish(fish), 30);
     }
 }
 
 function changeSpeed(event) {
-    let fish = event.currentTarget;
-    let id = parseInt(fish.id) || 1;
-    let index = id - 1; //array
+    const fish = event.currentTarget;
+    const id = parseInt(fish.id) || 1;
+    const index = id - 1; //array
 
     // Stop the current timer
     clearInterval(timerIds[index]);
@@ -95,11 +91,11 @@ function changeSpeed(event) {
     }, 3000);
 }
 
-function moveFish(fish, timerId) {
-   let id = parseInt(fish.id) || 1;
-   let index = id - 1; //array
-   let tank = document.querySelector(".tank");
-   let max = tank.clientWidth - fish.offsetWidth; //need?
+function moveFish(fish) {
+   const id = parseInt(fish.id) || 1;
+   const index = id - 1; //array
+   const tank = document.querySelector(".tank");
+   const max = tank.clientWidth - fish.offsetWidth; //need?
    
    if(directions[index] === "left") {
       let right = parseFloat(fish.style.right) || 0;
