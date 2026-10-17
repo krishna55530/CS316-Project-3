@@ -19,11 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
         directions[index] = "right";
         
         // Randomly position each fish
-        fish.style.top =
-            `${Math.random() * Math.max(0, tank.clientHeight - fish.offsetHeight)}px`;
-
-        fish.style.left =
-            `${Math.random() * Math.max(0, tank.clientWidth - fish.offsetWidth)}px`;
+        fish.style.top = `${Math.random() * Math.max(0, tank.clientHeight - fish.offsetHeight)}px`;
+        fish.style.left = `${Math.random() * Math.max(0, tank.clientWidth - fish.offsetWidth)}px`;
 
         fish.style.right = "auto";
     });
@@ -57,12 +54,21 @@ function flipFish(fish) {
     const id = parseInt(fish.id) || 1;
     const index = id - 1;
 
-    if (Math.random() < 0.6) {
+    /*if (Math.random() < 0.6) {
         directions[index] =
             directions[index] === "left" ? "right" : "left";
 
         fish.style.transform =
             directions[index] === "left" ? "scaleX(-1)" : "scaleX(1)";
+    }*/
+    if(Math.random() < 0.6) {
+        if(directions[index] === "left") {
+            directions[index] = "right";
+            fish.style.transform = "scaleX(-1)";
+        } else {
+            directions[index] = "left";
+            fish.style.transform = "scaleX(1)";
+        }
     }
 }
 
