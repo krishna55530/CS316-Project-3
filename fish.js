@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Randomly assign an image and position to each fish
     fishElements.forEach(fish => {
-        const randomImageNumber = Math.floor(Math.random() * 7) + 1;
+        const randomImageNumber = Math.floor(Math.random() * 9) + 1;
         fish.src = `fish${randomImageNumber}.png`;
 
         const id = parseInt(fish.id) || 1;
