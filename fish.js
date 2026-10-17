@@ -53,14 +53,7 @@ function startMoving() {
 function flipFish(fish) {
     const id = parseInt(fish.id) || 1;
     const index = id - 1;
-
-    /*if (Math.random() < 0.6) {
-        directions[index] =
-            directions[index] === "left" ? "right" : "left";
-
-        fish.style.transform =
-            directions[index] === "left" ? "scaleX(-1)" : "scaleX(1)";
-    }*/
+    
     if(Math.random() < 0.6) {
         if(directions[index] === "left") {
             directions[index] = "right";
